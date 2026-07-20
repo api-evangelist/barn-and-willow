@@ -1,0 +1,31 @@
+generated: '2026-07-18'
+method: searched
+source: https://barnandwillow.com/.well-known/openid-configuration
+docs: https://shopify.dev/docs/api/customer
+notes: >-
+  Barn & Willow runs on Shopify. Customer-facing authentication is the Shopify
+  Customer Account API, an OAuth 2.0 / OpenID Connect provider (issuer
+  https://shopify.com/authentication/4558913). Agentic commerce over the UCP MCP
+  endpoint uses the customer-account-mcp-api scope of the same provider.
+summary:
+  types: [oauth2, openIdConnect]
+  oauth2_flows: [authorizationCode]
+  pkce: S256
+  token_endpoint_auth_methods: [client_secret_basic]
+schemes:
+- name: ShopifyCustomerAccountOIDC
+  type: openIdConnect
+  openIdConnectUrl: https://barnandwillow.com/.well-known/openid-configuration
+  issuer: https://shopify.com/authentication/4558913
+  authorization_endpoint: https://account.barnandwillow.com/authentication/oauth/authorize
+  token_endpoint: https://account.barnandwillow.com/authentication/oauth/token
+  end_session_endpoint: https://account.barnandwillow.com/authentication/logout
+  jwks_uri: https://account.barnandwillow.com/authentication/.well-known/jwks.json
+  response_types_supported: [code]
+  grant_types_supported:
+  - authorization_code
+  - refresh_token
+  - urn:ietf:params:oauth:grant-type:jwt-bearer
+  code_challenge_methods_supported: [S256]
+  id_token_signing_alg_values_supported: [RS256]
+  sources: [well-known/barn-and-willow-openid-configuration.json]
