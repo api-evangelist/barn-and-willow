@@ -1,0 +1,49 @@
+generated: '2026-07-18'
+method: searched
+status: published
+source: https://barnandwillow.com/.well-known/ucp
+notes: >-
+  Barn & Willow's storefront (a Shopify store) exposes an official hosted MCP
+  server as the transport for the Universal Commerce Protocol (UCP) shopping
+  service. The endpoint is advertised in /.well-known/ucp and /llms.txt. A raw
+  tools/list call is gated on a UCP agent-profile URI, so the tool surface below
+  is captured from the documented agent flow (/llms.txt) and the UCP shopping
+  capability schemas referenced by the discovery profile; tool input schemas are
+  published at ucp.dev and not reproduced verbatim here.
+server:
+  name: barn-and-willow-ucp-shopping
+  transport: http
+  url: https://barnandwillow.com/api/ucp/mcp
+  protocol: UCP
+  supported_versions:
+  - '2026-04-08'
+  - '2026-01-23'
+  platform: Shopify
+  auth:
+    checkout_requires_human_approval: true
+    oidc_scope: customer-account-mcp-api:full
+capabilities:
+- dev.ucp.shopping.catalog.search
+- dev.ucp.shopping.catalog.lookup
+- dev.ucp.shopping.cart
+- dev.ucp.shopping.checkout
+- dev.ucp.shopping.fulfillment
+- dev.ucp.shopping.discount
+- dev.ucp.shopping.order
+- dev.shopify.catalog
+tools:
+- name: search_catalog
+  description: Find products matching a buyer's intent (UCP catalog search).
+  source: https://ucp.dev/2026-04-08/schemas/shopping/catalog_search.json
+- name: create_cart
+  description: Create a cart and add desired items.
+  source: https://ucp.dev/2026-04-08/schemas/shopping/cart.json
+- name: create_checkout
+  description: Start the purchase flow from a cart.
+  source: https://ucp.dev/2026-04-08/schemas/shopping/checkout.json
+- name: update_checkout
+  description: Set shipping address and fulfillment method on a checkout.
+  source: https://ucp.dev/2026-04-08/schemas/shopping/fulfillment.json
+- name: complete_checkout
+  description: Finalize the purchase; buyer must approve payment (human-in-the-loop).
+  source: https://ucp.dev/2026-04-08/schemas/shopping/checkout.json

@@ -1,7 +1,29 @@
 aid: barn-and-willow
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/barn-and-willow.png
 name: Barn & Willow
-description: Barn & Willow is a company surfaced as a portfolio company of 500-global and added to the
-  API Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+description: >-
+  Barn & Willow is a direct-to-consumer home furnishings brand specializing in
+  made-to-measure window treatments — custom drapery, curtains, roman shades and
+  blinds in natural fabrics such as linen, cotton and velvet. The company sells
+  online at barnandwillow.com, a Shopify-hosted storefront, offering free fabric
+  swatches, measuring guides and design consultations. Surfaced as a portfolio
+  company of 500 Global and added to the API Evangelist network, the storefront
+  exposes a real agentic-commerce surface: a Universal Commerce Protocol (UCP)
+  merchant profile and hosted MCP endpoint for agent-driven shopping, Shopify
+  Customer Account OAuth 2.0 / OpenID Connect authentication, and an llms.txt
+  agent-instructions document.
 url: https://raw.githubusercontent.com/api-evangelist/barn-and-willow/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -11,10 +33,36 @@ x-tier: stub
 x-tier-reason: portfolio-lead
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-18'
 tags:
 - Company
-apis: []
+- E-commerce
+- Retail
+- Home Furnishings
+- Window Treatments
+- Agentic Commerce
+- Shopify
+- Direct to Consumer
+apis:
+- name: Barn & Willow Agentic Commerce (UCP)
+  description: >-
+    The storefront's agent-facing commerce surface, implementing the Universal
+    Commerce Protocol (UCP) over a hosted MCP endpoint for catalog search, cart,
+    checkout, fulfillment and order tracking. Checkout requires human buyer
+    approval.
+  humanURL: https://barnandwillow.com/llms.txt
+  baseURL: https://barnandwillow.com
+  properties:
+  - type: MCPServer
+    url: mcp/barn-and-willow-mcp.yml
+  - type: LLMsTxt
+    url: llms/barn-and-willow-llms.txt
+  - type: Authentication
+    url: authentication/barn-and-willow-authentication.yml
+  - type: OAuthScopes
+    url: scopes/barn-and-willow-scopes.yml
+  - type: OpenIDConnect
+    url: well-known/barn-and-willow-openid-configuration.json
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
@@ -23,3 +71,26 @@ maintainers:
 common:
 - type: Website
   url: https://barnandwillow.com
+- type: MCPServer
+  url: mcp/barn-and-willow-mcp.yml
+- type: LLMsTxt
+  url: llms/barn-and-willow-llms.txt
+- type: WellKnown
+  url: well-known/barn-and-willow-well-known.yml
+- type: Authentication
+  url: authentication/barn-and-willow-authentication.yml
+- type: OAuthScopes
+  url: scopes/barn-and-willow-scopes.yml
+- type: Conformance
+  url: conformance/barn-and-willow-conformance.yml
+- type: DomainSecurity
+  url: security/barn-and-willow-domain-security.yml
+- type: PrivacyPolicy
+  url: https://barnandwillow.com/policies/privacy-policy
+- type: TermsOfService
+  url: https://barnandwillow.com/policies/terms-of-service
+x-enrichment:
+  date: '2026-07-19'
+  status: backfilled
+  pass: local-v1
+  note: backfilled from .gitignore signal + verified work evidence

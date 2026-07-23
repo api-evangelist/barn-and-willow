@@ -1,0 +1,31 @@
+generated: '2026-07-18'
+method: searched
+source: >-
+  https://barnandwillow.com/.well-known/openid-configuration,
+  https://barnandwillow.com/.well-known/ucp
+notes: >-
+  Cross-cutting standards Barn & Willow's storefront conforms to, evidenced by
+  its published discovery documents. This is a Shopify-hosted store; conformance
+  is inherited from the Shopify commerce platform.
+standards:
+- id: oauth2
+  conforms: true
+  evidence: /.well-known/oauth-authorization-server (RFC 8414) with authorizationCode flow
+- id: oidc
+  conforms: true
+  evidence: /.well-known/openid-configuration with RS256 id_token signing
+- id: oauth2-pkce
+  conforms: true
+  evidence: code_challenge_methods_supported = [S256]
+- id: rfc8414-authorization-server-metadata
+  conforms: true
+  evidence: /.well-known/oauth-authorization-server returns 200
+- id: ucp-2026-04-08
+  conforms: true
+  evidence: /.well-known/ucp advertises UCP versions 2026-04-08 and 2026-01-23 over MCP transport
+- id: mcp
+  conforms: true
+  evidence: UCP shopping service exposes an MCP endpoint at /api/ucp/mcp
+- id: llmstxt
+  conforms: true
+  evidence: /llms.txt published with agent instructions
