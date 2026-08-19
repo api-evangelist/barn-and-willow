@@ -2,14 +2,11 @@ generated: '2026-07-18'
 method: searched
 status: published
 source: https://barnandwillow.com/.well-known/ucp
-notes: >-
-  Barn & Willow's storefront (a Shopify store) exposes an official hosted MCP
-  server as the transport for the Universal Commerce Protocol (UCP) shopping
-  service. The endpoint is advertised in /.well-known/ucp and /llms.txt. A raw
-  tools/list call is gated on a UCP agent-profile URI, so the tool surface below
-  is captured from the documented agent flow (/llms.txt) and the UCP shopping
-  capability schemas referenced by the discovery profile; tool input schemas are
-  published at ucp.dev and not reproduced verbatim here.
+notes: Barn & Willow's storefront (a Shopify store) exposes an official hosted MCP server as the transport
+  for the Universal Commerce Protocol (UCP) shopping service. The endpoint is advertised in /.well-known/ucp
+  and /llms.txt. A raw tools/list call is gated on a UCP agent-profile URI, so the tool surface below
+  is captured from the documented agent flow (/llms.txt) and the UCP shopping capability schemas referenced
+  by the discovery profile; tool input schemas are published at ucp.dev and not reproduced verbatim here.
 server:
   name: barn-and-willow-ucp-shopping
   transport: http
@@ -47,3 +44,11 @@ tools:
 - name: complete_checkout
   description: Finalize the purchase; buyer must approve payment (human-in-the-loop).
   source: https://ucp.dev/2026-04-08/schemas/shopping/checkout.json
+deployment:
+  mode: remote
+  endpoint: https://barnandwillow.com/api/ucp/mcp
+  verified: probed
+  probe: live
+  tools: 13
+  checked: '2026-08-12'
+  source: catalog MCP census
