@@ -71,7 +71,6 @@ apis:
     checkout, fulfillment and order tracking. Checkout requires human buyer
     approval.
   humanURL: https://barnandwillow.com/llms.txt
-  baseURL: https://barnandwillow.com
   properties:
   - type: MCPServer
     url: mcp/barn-and-willow-mcp.yml
@@ -83,6 +82,9 @@ apis:
     url: scopes/barn-and-willow-scopes.yml
   - type: OpenIDConnect
     url: well-known/barn-and-willow-openid-configuration.json
+  x-surface: platform-generated
+  x-platform: shopify
+  x-platform-surface: ucp
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
