@@ -1,0 +1,18 @@
+generated: '2026-10-12'
+method: none
+source:
+- https://zapier.com/apps/barn-and-willow/integrations
+- https://zapier.com/apps/barn-willow/integrations
+- https://n8n.io/integrations/barn-and-willow/
+- https://composio.dev/toolkits/barn-and-willow
+- https://monid.ai/tools/barn-and-willow
+checked:
+- https://composio.dev/toolkits/barn-and-willow
+- https://monid.ai/tools/barn-and-willow
+- https://n8n.io/integrations/barn-and-willow/
+- https://zapier.com/apps/barn-and-willow/integrations
+- https://zapier.com/apps/barn-willow/integrations
+summary: null
+marketplace_apps: []
+edges: []
+templates: []
